@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   HashRouter as Router,
   //Redirect,
@@ -9,12 +10,16 @@ import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
 
 function App() {
-  const isLoggedIn = true;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Router>
       <Switch>
-        <Route path="/home" exact>
-          {isLoggedIn ? <Home /> : <Login />}
+        <Route path="/" exact>
+          {isLoggedIn ? (
+            <Home setIsLoggedIn={setIsLoggedIn} />
+          ) : (
+            <Login setIsLoggedIn={setIsLoggedIn} />
+          )}
         </Route>
         <Route>
           <NotFound />
