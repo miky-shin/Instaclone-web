@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import { isLoggedInVar } from "../apollo";
+import { darkModeVar, isLoggedInVar } from "../apollo";
 
 const Title = styled.h1`
-  color: ${(props) => (props.setpotato ? "palevioletred" : "bisque")};
+color: ${(props) => props.theme.fontColor};
+  /* color: ${(props) => (props.setpotato ? "palevioletred" : "bisque")};
   font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   ${(props) =>
@@ -13,11 +14,11 @@ const Title = styled.h1`
         `
       : css`
           text-decoration: underline;
-        `}
+        `} */
 `;
 
 const Container = styled.div`
-  background-color: tomato;
+  background-color: ${(props) => props.theme.bgColor};
 `;
 
 const TogglePotato = styled.button`
@@ -31,6 +32,8 @@ function Login() {
     <Container>
       <Title setpotato={potato}>Login</Title>
       <button onClick={() => isLoggedInVar(true)}>Log in now!</button>
+      <button onClick={() => darkModeVar(true)}>To dark</button>
+      <button onClick={() => darkModeVar(false)}>To light</button>
       <TogglePotato onClick={togglePotato}>Toggle Potato</TogglePotato>
     </Container>
   );
