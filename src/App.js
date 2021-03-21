@@ -1,5 +1,5 @@
 import { useReactiveVar } from "@apollo/client";
-import { useState } from "react";
+//import { useState } from "react";
 import {
   HashRouter as Router,
   //Redirect,
@@ -11,15 +11,9 @@ import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
 import { darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
+// eslint-disable-next-line
+import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 
-const lightTheme = {
-  fontColor: "#2c2c2c",
-  bgColor: "beige",
-};
-const darkTheme = {
-  fontColor: "beige",
-  bgColor: "#2c2c2c",
-};
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -27,14 +21,15 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            {isLoggedIn ? <Home /> : <Login />}
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
+        <GlobalStyles />
+          <Switch>
+            <Route path="/" exact>
+              {isLoggedIn ? <Home /> : <Login />}
+            </Route>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
       </Router>
     </ThemeProvider>
   );
