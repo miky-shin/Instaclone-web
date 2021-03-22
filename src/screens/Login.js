@@ -1,40 +1,59 @@
+// eslint-disable-next-line
 import { useState } from "react";
+// eslint-disable-next-line
 import styled, { css } from "styled-components";
+// eslint-disable-next-line
 import { darkModeVar, isLoggedInVar } from "../apollo";
 
-const Title = styled.h1`
-  color: ${(props) => props.theme.fontColor};
-  /* color: ${(props) => (props.setpotato ? "palevioletred" : "bisque")};
-  font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  ${(props) =>
-    props.setpotato
-      ? css`
-          font-size: 49px;
-        `
-      : css`
-          text-decoration: underline;
-        `} */
-`;
-
 const Container = styled.div`
-  
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-const TogglePotato = styled.button`
-  color: red;
+const WhiteBox = styled.div`
+  background-color: white;
+  border: 1px solid rgb(219, 219, 219);
+`;
+
+const TopBox = styled(WhiteBox)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+const BottomBox = styled(WhiteBox)`
+  padding: 10px 0px;
+  text-align: center;
 `;
 
 function Login() {
-  const [potato, setPotato] = useState(false);
-  const togglePotato = () => setPotato((current) => !current);
   return (
     <Container>
-      <Title setpotato={potato}>Login</Title>
-      <button onClick={() => isLoggedInVar(true)}>Log in now!</button>
-      <button onClick={() => darkModeVar(true)}>To dark</button>
-      <button onClick={() => darkModeVar(false)}>To light</button>
-      <TogglePotato onClick={togglePotato}>Toggle Potato</TogglePotato>
+      <div>
+        <TopBox>
+          <h1>Instagram</h1>
+          <form>
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <input type="submit" placeholder="Log in" />
+          </form>
+          <span>Or</span>
+          <span>Log in with Facebook</span>
+        </TopBox>
+        <BottomBox>
+          <span> Don't have an account? </span> <a href="#">Sign up</a>
+        </BottomBox>
+      </div>
     </Container>
   );
 }
