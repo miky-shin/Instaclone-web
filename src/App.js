@@ -9,6 +9,7 @@ import {
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp"
+import routes from "./routes"
 import NotFound from "./screens/NotFound";
 import { darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
@@ -23,11 +24,11 @@ function App() {
       <Router>
         <GlobalStyles />
         <Switch>
-          <Route path="/" exact>
+          <Route path={routes.home} exact>
             {isLoggedIn ? <Home /> : <Login />}
           </Route>
           {!isLoggedIn ? (
-            <Route path="/sign-up">
+            <Route path={routes.SignUp}>
               <SignUp />
             </Route>
           ) : null}
