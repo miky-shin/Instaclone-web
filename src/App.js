@@ -8,12 +8,12 @@ import {
 } from "react-router-dom";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
+import SignUp from "./screens/SignUp"
 import NotFound from "./screens/NotFound";
 import { darkModeVar, isLoggedInVar } from "./apollo";
 import { ThemeProvider } from "styled-components";
 // eslint-disable-next-line
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
-
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -22,14 +22,19 @@ function App() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router>
         <GlobalStyles />
-          <Switch>
-            <Route path="/" exact>
-              {isLoggedIn ? <Home /> : <Login />}
+        <Switch>
+          <Route path="/" exact>
+            {isLoggedIn ? <Home /> : <Login />}
+          </Route>
+          {!isLoggedIn ? (
+            <Route path="/sign-up">
+              <SignUp />
             </Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
+          ) : null}
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
       </Router>
     </ThemeProvider>
   );

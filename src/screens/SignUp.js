@@ -34,7 +34,6 @@ const TopBox = styled(WhiteBox)`
   padding: 35px 40px 10px 40px;
   margin-bottom: 10px;
   form {
-    margin-top: 35px;
     width: 100%;
     display: grid;
     justify-items: center;
@@ -69,16 +68,16 @@ const Button = styled.input`
 `;
 
 const BottomBox = styled(WhiteBox)`
-  padding: 20px 0px;
+  padding: 27px 0px;
   text-align: center;
   a {
-    font-weight: 900;
+    font-weight: 200;
     color: ${(props) => props.theme.accent};
   }
 `;
 
 const Separator = styled.div`
-  margin: 20px 0px 30px 0px;
+  margin: 15px 0px 15px 0px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -95,18 +94,53 @@ const Separator = styled.div`
     color: #8e8e8e;
   }
 `;
-const FacebookLogin = styled.div`
-  color: #385285;
-  margin-bottom: 10px;
+
+const Description = styled.div`
+  margin: 15px 0px 15px 0px;
   display: flex;
+  justify-content: center;
+  width: 100%;
   align-items: center;
+  text-align: center;
 
   span {
-    margin-left: 10px;
-    font-weight: 700;
+    margin: 0px 0px;
+    font-weight: 900;
+    font-size: 17px;
+    color: #8e8e8e;
   }
 `;
-function Login() {
+const Description2 = styled.div`
+  margin: 15px 0px 15px 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  span {
+    margin: 0px 0px;
+    font-size: 12px;
+    color: #8e8e8e;
+  }
+`;
+
+const FacebookLogin = styled.div`
+  border: none;
+  border-radius: 3px;
+  margin-top: 12px;
+  background-color: ${(props) => props.theme.accent};
+  color: white;
+  text-align: center;
+  padding: 7.5px 0px;
+  font-weight: 800;
+  width: 100%;
+  margin-bottom: 10px;
+  span {
+    margin-left: 7px;
+  }
+`;
+
+function SignUp() {
   return (
     <Container>
       <Wrapper>
@@ -114,28 +148,41 @@ function Login() {
           <div>
             <FontAwesomeIcon icon={faInstagram} size="3x" />
           </div>
-          <h1>Instagram</h1>
-          <form>
-            <Input type="text" placeholder="Username" />
-            <Input type="password" placeholder="Password" />
-            <Button type="submit" value="Log in" />
-          </form>
+          <Description>
+            <span>Sign up to see photos and videos from your frieds.</span>
+          </Description>
+
+          <FacebookLogin>
+            <FontAwesomeIcon icon={faFacebookSquare} />
+            <span>Log in with Facebook</span>
+          </FacebookLogin>
           <Separator>
             <div></div>
             <span>Or</span>
             <div></div>
           </Separator>
-          <FacebookLogin>
-            <FontAwesomeIcon icon={faFacebookSquare} />
-            <span>Log in with Facebook</span>
-          </FacebookLogin>
+          <form>
+            <Input type="text" placeholder="Mobile Number or Email" />
+            <Input type="text" placeholder="Full Name" />
+            <Input type="text" placeholder="Username" />
+            <Input type="password" placeholder="Password" />
+            <Button type="submit" value="Sign up" />
+          </form>
+          <Description2>
+            <span>
+              By signing up, you agree to our Terms, Data Policy and Cookies
+              Policy.
+            </span>
+          </Description2>
         </TopBox>
+
         <BottomBox>
-          <span> Don't have an account? </span>
-          <Link to="/sign-up">Sign up</Link>
+          <span> Have an account? </span>
+          <Link to="/log-in">Log in</Link>
         </BottomBox>
       </Wrapper>
     </Container>
   );
 }
-export default Login;
+
+export default SignUp;
