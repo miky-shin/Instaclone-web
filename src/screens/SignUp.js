@@ -8,8 +8,9 @@ import AuthLayout from "../components/auth/AuthLayout";
 import BottomBox from "../components/auth/BottomBox";
 import Button from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
-import Input from "../components/auth/input";
+import Input from "../components/auth/Input";
 import Seperator from "../components/auth/Seperator";
+import PageTitle from "../components/PageTitle";
 import { FatLink } from "../components/shared/shared";
 import routes from "../routes";
 
@@ -51,6 +52,7 @@ const FacebookLogin = styled.div`
 function SignUp() {
   return (
     <AuthLayout>
+      <PageTitle title="Sign up"/>
       <FormBox>
         <div>
           <FontAwesomeIcon icon={faInstagram} size="3x" />
