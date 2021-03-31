@@ -1,7 +1,7 @@
 import { ApolloProvider, useReactiveVar } from "@apollo/client";
 //import { useState } from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   //Redirect,
   Route,
   Switch,

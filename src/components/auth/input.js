@@ -5,6 +5,7 @@ const Input = styled.input`
   border-radius: 3px;
   padding: 7px 7px;
   background-color: #fafafa;
+  color: black;
   border: 0.5px solid ${(props) => props.hasError ? "tomato" : props.theme.borderColor};
   margin-top: 5px;
   box-sizing: border-box;
