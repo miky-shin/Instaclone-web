@@ -82,7 +82,7 @@ function SignUp() {
       createAccount: { ok, error },
     } = data;
     if (!ok) {
-      return;
+      return error;
     }
     history.push(routes.home, {
       message: "Account created. Please log in.",
