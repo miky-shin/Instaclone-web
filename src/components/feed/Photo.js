@@ -11,6 +11,7 @@ import {
 import { faHeart as SolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Avatar from "../Avatar";
+import { FEED_QUERY } from "../../screens/Home";
 
 const TOGGLE_LIKE_MUTATION = gql`
   mutation toggleLike($id: Int!) {
@@ -66,6 +67,7 @@ function Photo({ id, user, file, isLiked, likes }) {
     variables: {
       id,
     },
+    refetchQueries: [{ query: FEED_QUERY }],
   });
   return (
     <PhotoContainer key={id}>
