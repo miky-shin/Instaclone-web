@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0px 15px;
 `;
 const Column = styled.div``;
 const Icon = styled.span`
