@@ -49,18 +49,33 @@ function Comments({ photoId, author, caption, commentNumber, comments }) {
           ...userData.me,
         },
       };
+      const newCacheComment = cache.writeFragment({
+        fragment: gql`
+          fragment BSName on Comment {
+            id
+            createdAt
+            isMine
+            payload
+            user {
+              username
+              avatar
+            }
+          }
+        `,
+        data: newComment,
+      });
       cache.modify({
         id: `Photo:${photoId}`,
         fields: {
           comments(prev) {
-            return [...prev, newComment];
+            return [...prev, newCacheComment];
           },
           commentNumber(prev) {
             return prev + 1;
           },
         },
       });
-      console.log(newComment);
+      console.log(newCacheComment);
     }
   };
   const [createCommentMutation, { loading }] = useMutation(
@@ -90,8 +105,11 @@ function Comments({ photoId, author, caption, commentNumber, comments }) {
       {comments?.map((comment) => (
         <Comment
           key={comment.id}
+          id={comment.id}
+          photoId= {photoId}
           author={comment.user.username}
           payload={comment.payload}
+          isMine={comment.isMine}
         />
       ))}
       <div>
