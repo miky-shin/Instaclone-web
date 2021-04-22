@@ -13,10 +13,10 @@ import BottomBox from "../components/auth/BottomBox";
 import Button from "../components/auth/Button";
 import FormBox from "../components/auth/FormBox";
 import FormError from "../components/auth/FormError";
-import Input from "../components/auth/Input";
 import Seperator from "../components/auth/Seperator";
 import PageTitle from "../components/PageTitle";
 import routes from "../routes";
+import Input from "../components/auth/Input";
 
 const FacebookLogin = styled.div`
   color: #385285;
