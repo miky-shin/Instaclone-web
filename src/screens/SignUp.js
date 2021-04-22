@@ -17,7 +17,7 @@ import Seperator from "../components/auth/Seperator";
 import PageTitle from "../components/PageTitle";
 import { FatLink } from "../components/shared";
 import routes from "../routes";
-import Input from "../components/auth/Input";
+import Input from "../components/auth/input";
 
 const Subsitile = styled(FatLink)`
   font-size: 17px;

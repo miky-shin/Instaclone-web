@@ -16,7 +16,7 @@ import FormError from "../components/auth/FormError";
 import Seperator from "../components/auth/Seperator";
 import PageTitle from "../components/PageTitle";
 import routes from "../routes";
-import Input from "../components/auth/Input";
+import Input from "../components/auth/input";
 
 const FacebookLogin = styled.div`
   color: #385285;
